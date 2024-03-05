@@ -13,8 +13,8 @@
 <body>
   <main>
     <h1>Todo List</h1>
-    <form>
-      <input type="text" name="atividade" id="atividade" placeholder="Insira uma atividade...">
+    <form method="get" action="./criar-todo.php">
+      <input type="text" name="atividade" placeholder="Insira uma atividade...">
       <input type="submit" value="Adicionar">
     </form>
 
