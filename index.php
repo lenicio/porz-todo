@@ -1,3 +1,14 @@
+<?php
+require "./config.php";
+
+$sql = "SELECT * FROM todo";
+$sql = $pdo->prepare($sql);
+$sql->execute();
+
+$dados = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -28,41 +39,18 @@
       </thead>
 
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>Estudar PHP</td>
-          <td>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash"></i>
-          </td>
-        </tr>
 
-        <tr>
-          <td>2</td>
-          <td>Estudar HTML / CSS</td>
-          <td>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash"></i>
-          </td>
-        </tr>
+        <?php foreach ($dados as $item): ?>
+          <tr>
+            <td><?= $item['id'] ?></td>
+            <td><?= $item['atividade'] ?></td>
+            <td>
+              <i class="fa-solid fa-pen"></i>
+              <i class="fa-solid fa-trash"></i>
+            </td>
+          </tr>
+        <?php endforeach; ?>
 
-        <tr>
-          <td>3</td>
-          <td>Praticar Banco de Dados</td>
-          <td>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash"></i>
-          </td>
-        </tr>
-
-        <tr>
-          <td>4</td>
-          <td>Ler conteúdo sobre qualidade</td>
-          <td>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-trash"></i>
-          </td>
-        </tr>
       </tbody>
     </table>
   </main>
