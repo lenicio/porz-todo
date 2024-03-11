@@ -42,11 +42,16 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
 
         <?php foreach ($dados as $item): ?>
           <tr>
-            <td><?= $item['id'] ?></td>
+            <td><?=$item['id']?></td>
             <td><?= $item['atividade'] ?></td>
             <td>
               <i class="fa-solid fa-pen"></i>
-              <i class="fa-solid fa-trash"></i>
+              
+              <a href="./delete-todo.php?id=<?=$item['id']?>">
+                <i class="fa-solid fa-trash"></i>
+              </a>
+
+              
             </td>
           </tr>
         <?php endforeach; ?>
